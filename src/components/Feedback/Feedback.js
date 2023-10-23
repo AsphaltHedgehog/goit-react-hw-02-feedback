@@ -64,7 +64,7 @@ class Feedback extends Component {
     const { good, neutral, bad } = this.state;
     let total = good + neutral + bad;
     return (
-      <Section title={1}>
+      <Section title='Please leave feedback'>
         <FeedbackOptions handleFeedback={this.handleFeedback} />
         {total > 0 ? <Statistics
           good={good}
