@@ -14,19 +14,19 @@ class Feedback extends Component {
     bad: 0
   };
   
-  handleFeedback = item => {
-    switch (item.textContent) {
-      case 'Good':
+  handleFeedback = FeedbackOption => {
+    switch (FeedbackOption) {
+      case 'good':
         this.setState(prevState => {
           return { good: prevState.good + 1 }
         });
         break;
-      case 'Neutral':
+      case 'neutral':
         this.setState(prevState => {
           return { neutral: prevState.neutral + 1 }
         });
         break;
-      case 'Bad':
+      case 'bad':
         this.setState(prevState => {
           return { bad: prevState.bad + 1 }
         });
@@ -65,7 +65,7 @@ class Feedback extends Component {
     let total = good + neutral + bad;
     return (
       <Section title='Please leave feedback'>
-        <FeedbackOptions handleFeedback={this.handleFeedback} />
+        <FeedbackOptions handleFeedback={this.handleFeedback} options={this.state} />
         {total > 0 ? <Statistics
           good={good}
           neutral={neutral}
