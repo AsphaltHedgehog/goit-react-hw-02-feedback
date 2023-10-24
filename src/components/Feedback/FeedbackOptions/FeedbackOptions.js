@@ -5,11 +5,10 @@ import PropTypes from 'prop-types';
 import css from './feedbackoptions.module.css'
 
 const FeedbackOptions = ({ handleFeedback, options }) => {
-  const optionsArr = Object.keys(options);
-  const btns = optionsArr.map(option => 
-    <li key={crypto.randomUUID()}>
+  const btns = options.map((option, index)=> 
+    <li key={index}>
       <button type='button' className={css.buttons}
-        onClick={click => handleFeedback(click.target.textContent)}>
+        onClick={() => handleFeedback(option)}>
         {option}
       </button>
     </li>
